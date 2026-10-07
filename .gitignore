@@ -1,0 +1,54 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+venv/
+**/venv/
+**/.venv/
+backend/.venv-local/
+backend/.venv312/
+frontend/.cert/
+backend/venv/
+backend/.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Environment
+.env
+backend/.env
+frontend/.env
+*.local
+
+# Build
+frontend/dist/
+frontend/build/
+*.egg-info/
+dist/
+build/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/
+.mypy_cache/
+
+# Database
+*.db
+*.sqlite3
+
+# Logs
+*.log
+logs/
+
+# AI / secrets
+ai/.env
+*.pem
+*.key

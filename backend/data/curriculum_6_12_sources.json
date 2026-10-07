@@ -1,0 +1,109 @@
+{
+  "schema_version": "1.0.0",
+  "dataset_id": "india_school_curriculum_grades_6_12",
+  "title": "Grades 6-12 Official Curriculum Source Catalogue",
+  "academic_session": "2026-27",
+  "generated_on": "2026-10-01",
+  "language": "en",
+  "overall_status": "source_catalogue_verified_chapter_index_incomplete",
+  "intended_use": "Import source-backed board, grade, subject and textbook references into the NDA Chatbot. Do not treat this file as a complete chapter syllabus until every chapter entry is reviewed and marked verified.",
+  "quality_rules": [
+    "Keep NCERT/CBSE and GSEB curriculum records separate.",
+    "Never infer a chapter title from a chapter number or a textbook filename.",
+    "A subject becomes chapter-complete only after the official book contents page has been checked.",
+    "A grade is complete only when every applicable subject, language choice, stream and textbook has verified chapter entries.",
+    "The CBSE curriculum page listed below returned a 2025-26 label during this collection; confirm the 2026-27 release before using it as the current CBSE syllabus."
+  ],
+  "sources": {
+    "ncert_textbook_catalogue": {
+      "url": "https://ncert.nic.in/textbook.php",
+      "source_owner": "National Council of Educational Research and Training",
+      "source_type": "official_textbook_catalogue",
+      "verified_on": "2026-10-01",
+      "notes": "The official selector lists classes I-XII and class-specific subject choices. Chapter links are numbered; chapter names must be extracted from the corresponding official books and reviewed."
+    },
+    "cbse_curriculum_page": {
+      "url": "https://cbseacademic.nic.in/curriculum_2026.html",
+      "source_owner": "Central Board of Secondary Education",
+      "source_type": "official_curriculum_page",
+      "verified_on": "2026-10-01",
+      "page_label_seen": "Curriculum for the Academic Year 2025-26",
+      "current_session_verified": false,
+      "notes": "Do not mark CBSE 2026-27 syllabi verified until CBSE publishes the matching session documents."
+    },
+    "gseb_textbook_board": {
+      "url": "https://gsstb.gujarat.gov.in/",
+      "source_owner": "Gujarat State School Textbook Board, Education Department, Government of Gujarat",
+      "source_type": "official_textbook_catalogue",
+      "verified_on": "2026-10-01",
+      "grades_6_8_page": "https://gsstb.gujarat.gov.in/Home/gsstb/Std1to8",
+      "grades_9_12_page": "https://gsstb.gujarat.gov.in/Home/gsstb/Std9to12",
+      "mediums_seen": ["Gujarati", "English", "Hindi/Other"],
+      "notes": "Official pages link to public Drive folders by grade and medium. Chapter lists are inside individual textbooks and have not yet been extracted or reviewed."
+    }
+  },
+  "boards": [
+    {
+      "board_id": "NCERT-CBSE",
+      "board_name": "NCERT / CBSE",
+      "catalogue_source_id": "ncert_textbook_catalogue",
+      "curriculum_source_id": "cbse_curriculum_page",
+      "standards": [
+        {"standard": 6, "subject_catalog_status": "verified_from_ncert_selector", "chapter_index_status": "pending_official_book_contents_review", "subjects": ["Hindi", "English", "Mathematics", "Social Science", "Sanskrit", "Science", "Arts", "Physical Education and Well Being", "Vocational Education", "Urdu"]},
+        {"standard": 7, "subject_catalog_status": "verified_from_ncert_selector", "chapter_index_status": "pending_official_book_contents_review", "subjects": ["Hindi", "English", "Mathematics", "Social Science", "Sanskrit", "Science", "Arts", "Physical Education and Well Being", "Vocational Education", "Urdu"]},
+        {"standard": 8, "subject_catalog_status": "verified_from_ncert_selector", "chapter_index_status": "pending_official_book_contents_review", "subjects": ["Hindi", "English", "Mathematics", "Social Science", "Sanskrit", "Science", "Arts", "Physical Education and Well Being", "Vocational Education", "Urdu"]},
+        {"standard": 9, "subject_catalog_status": "verified_from_ncert_selector", "chapter_index_status": "pending_official_book_contents_review", "subjects": ["English", "Hindi", "Sanskrit", "Mathematics", "Science", "Social Science", "Arts", "Urdu", "Physical Education and Well Being", "ICT", "Skill Education"]},
+        {"standard": 10, "subject_catalog_status": "verified_from_ncert_selector", "chapter_index_status": "pending_official_book_contents_review", "subjects": ["Mathematics", "Science", "Hindi", "Social Science", "English", "Sanskrit", "Urdu", "Health and Physical Education"]},
+        {"standard": 11, "subject_catalog_status": "verified_from_ncert_selector", "chapter_index_status": "pending_official_book_contents_review", "subjects": ["Accountancy", "Biology", "Biotechnology", "Business Studies", "Chemistry", "Computer Science", "Computers and Communication Technology", "Creative Writing and Translation", "Economics", "English", "Fine Art", "Geography", "Graphics Design", "Health and Physical Education", "Heritage Crafts", "Hindi", "History", "Home Science", "Informatics Practices", "Knowledge Traditions and Practices of India", "Mathematics", "Physics", "Political Science", "Psychology", "Sangeet", "Sanskrit", "Sociology", "Statistics", "Urdu"]},
+        {"standard": 12, "subject_catalog_status": "verified_from_ncert_selector", "chapter_index_status": "pending_official_book_contents_review", "subjects": ["Accountancy", "Biology", "Business Studies", "Chemistry", "Computer Science", "Creative Writing and Translation", "Economics", "English", "Fine Art", "Geography", "Heritage Crafts", "Hindi", "History", "Home Science", "Informatics Practices", "Mathematics", "New Age Graphics Design", "Physics", "Political Science", "Psychology", "Sangeet", "Sanskrit", "Sociology", "Urdu"]}
+      ]
+    },
+    {
+      "board_id": "GSEB",
+      "board_name": "Gujarat State Education Board / Gujarat State School Textbook Board",
+      "catalogue_source_id": "gseb_textbook_board",
+      "standards": [
+        {"standard": 6, "medium_folders": {"Gujarati": "https://drive.google.com/drive/folders/11DJ1JDKeGhImE0o5-th2pNr0tDvWAVV-", "English": "https://drive.google.com/drive/folders/1vdacE-2AnLL5dFAmbyLnPZRFyIJAJPCf", "Hindi/Other": "https://drive.google.com/drive/folders/17Doq_elWyqGqYauwJDQ0j24wA2kCZG4P"}, "textbook_catalog_status": "official_folder_link_verified", "chapter_index_status": "pending_individual_book_contents_review"},
+        {"standard": 7, "medium_folders": {"Gujarati": "https://drive.google.com/drive/folders/1cNS6REr81TVkYCZN22geP6m83M0vH3J3", "English": "https://drive.google.com/drive/folders/1JHxkSCCfieXHfj8r8ou5V9ed3HqeFlFy", "Hindi/Other": "https://drive.google.com/drive/folders/1ZHZTDS7Uejyae0PCTaDJ7j8oEdXxpglG"}, "textbook_catalog_status": "official_folder_link_verified", "chapter_index_status": "pending_individual_book_contents_review"},
+        {"standard": 8, "medium_folders": {"Gujarati": "https://drive.google.com/drive/folders/1nAM-vX-VYIo14O4m103WEfytqmw9Xrpl", "English": "https://drive.google.com/drive/folders/1_SyN6zS5vH-okapbMqTumDdF-Mm-403j", "Hindi/Other": "https://drive.google.com/drive/folders/1R-5PRxxlNEk-SqUZ92aT4dOYqxl1pU5A"}, "textbook_catalog_status": "official_folder_link_verified", "chapter_index_status": "pending_individual_book_contents_review"},
+        {"standard": 9, "medium_folders": {"Gujarati": "https://drive.google.com/drive/folders/1tKDcdM8goCQU3SPv_JjyM0qyuxFXabvN", "English": "https://drive.google.com/drive/folders/1alY6YbjVtULKdQaMdqL6Dm99jlqiIqOp", "Hindi/Other": "https://drive.google.com/drive/folders/1rlJvfwJhPjBn0HidQQMzgg8prxvmbGgc"}, "textbook_catalog_status": "official_folder_link_verified", "chapter_index_status": "pending_individual_book_contents_review"},
+        {"standard": 10, "medium_folders": {"Gujarati": "https://drive.google.com/drive/folders/1YvRGbTw8UCB_Wk6_MukSdSEQ0uPfEtTv", "English": "https://drive.google.com/drive/folders/1oXk4i1oI0FIT1rfKxDHoRTKMpsoCjDCA", "Hindi/Other": "https://drive.google.com/drive/folders/1JvUgJYaQ_KzKVqTIQDF1REb6X8a2sN6k"}, "textbook_catalog_status": "official_folder_link_verified", "chapter_index_status": "pending_individual_book_contents_review"},
+        {"standard": 11, "medium_folders": {"Gujarati": "https://drive.google.com/drive/folders/1eCBK7IytDGIi8BBBMNZ73KOyO_cCBMIn", "English": "https://drive.google.com/drive/folders/1Ti0MplPi-RnkFoIuZ4QEeSIz-HCy_ACK", "Hindi/Other": "https://drive.google.com/drive/folders/1b8gFRY8FV7WcyAITgFN4ZaEEg0quChTP"}, "textbook_catalog_status": "official_folder_link_verified", "chapter_index_status": "pending_individual_book_contents_review"},
+        {"standard": 12, "medium_folders": {"Gujarati": "https://drive.google.com/drive/folders/1FInQrM5JVznKPT0G_HoS_lMdjR3EWNQ3", "English": "https://drive.google.com/drive/folders/1CAXKf1b0BgFz-4wR1V3Z1WIcXvB5Men7", "Hindi/Other": "https://drive.google.com/drive/folders/1rGmtVe9ZmCZroOAhjTmnVTJzJKJv2vAF"}, "textbook_catalog_status": "official_folder_link_verified", "chapter_index_status": "pending_individual_book_contents_review"}
+      ]
+    }
+  ],
+  "verified_chapter_indexes": [
+    {
+      "board_id": "GSEB",
+      "standard": 6,
+      "medium": "Gujarati",
+      "subject": "Mathematics",
+      "textbook_title": "ગણિત પ્રકાશ",
+      "textbook_file_id": "1TlW7ZtTyoMtz9XK_Nh4dNmb3GYud_Ec4",
+      "textbook_url": "https://drive.google.com/file/d/1TlW7ZtTyoMtz9XK_Nh4dNmb3GYud_Ec4/view",
+      "contents_page": 20,
+      "verification_status": "verified_from_official_textbook_contents_page",
+      "chapters": [
+        {"number": 1, "title": "ગણિતમાં પૅટર્ન", "page_start": 1},
+        {"number": 2, "title": "રેખાઓ અને ખૂણાઓ", "page_start": 13},
+        {"number": 3, "title": "સંખ્યાની રમત", "page_start": 55},
+        {"number": 4, "title": "માહિતીનું નિયમન અને રજૂઆત", "page_start": 74},
+        {"number": 5, "title": "અવિભાજ્ય સંખ્યાઓ", "page_start": 107},
+        {"number": 6, "title": "પરિમિતિ અને ક્ષેત્રફળ", "page_start": 129},
+        {"number": 7, "title": "અપૂર્ણાંક", "page_start": 151},
+        {"number": 8, "title": "રચનાઓ સાથે રમત", "page_start": 187},
+        {"number": 9, "title": "સંમિતિ", "page_start": 217},
+        {"number": 10, "title": "શૂન્યની બીજી બાજુ", "page_start": 242}
+      ]
+    }
+  ],
+  "coverage": {
+    "grade_range": [6, 12],
+    "board_grade_source_pairs": 14,
+    "ncert_subject_catalogues": "7 of 7 grades",
+    "gseb_official_medium_folder_links": "21 of 21 grade-medium links",
+    "verified_chapter_title_coverage": "One GSEB Gujarati-medium textbook index verified; complete core-subject coverage is still pending and has not been calculated",
+    "status": "not_a_complete_syllabus_yet"
+  }
+}

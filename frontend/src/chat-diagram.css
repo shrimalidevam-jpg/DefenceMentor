@@ -1,0 +1,7 @@
+.chat-diagram-wrap{position:relative;max-width:100%;margin:12px 0 2px;padding:14px 42px 14px 14px;overflow:auto;background:#181b23;border:1px solid #3a3f4b;border-radius:7px}
+.chat-diagram{min-width:280px}
+.chat-diagram svg{display:block;width:100%;max-width:100%;height:auto;margin:auto}
+.chat-diagram-download{position:absolute;top:7px;right:7px;display:grid;place-items:center;width:30px;height:30px;padding:0;border:1px solid #424756;border-radius:5px;background:#222631;color:#d9dce5}
+.chat-diagram-download:hover{background:#303644;color:#fff}
+.chat-diagram-download svg{width:15px;height:15px}
+.chat-diagram-loading,.chat-diagram-error{display:block;margin:8px 0;color:#aeb3c0;font-size:12px}

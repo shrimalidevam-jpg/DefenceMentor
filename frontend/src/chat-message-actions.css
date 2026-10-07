@@ -1,0 +1,26 @@
+.chat-message-actions{display:flex;align-items:center;gap:5px;margin-top:10px}
+.chat-message-actions button{display:inline-flex;align-items:center;gap:5px;border:0;border-radius:6px;background:transparent;color:#858b9a;padding:6px;font-size:11px;transition:background .15s,color .15s}
+.chat-message-actions button:hover{background:#ffffff0c;color:#dfe1e9}
+.chat-message-actions button.selected{background:#28243a;color:#c4b3ff}
+.chat-message-actions svg{width:15px;height:15px}
+.chat-message-actions button:focus-visible{outline:2px solid #a991ed;outline-offset:2px}
+.chat-composer button.oral-explanation-toggle{width:auto;flex:0 0 auto;display:flex;align-items:center;gap:5px;padding:0 9px;font-size:11px}
+.chat-composer button.oral-mode{background:#4d3b81;box-shadow:0 0 0 1px #a991ed inset}
+.chat-composer button.oral-mode:hover{background:#604b9b}
+.chat-main{grid-template-rows:auto 1fr auto auto auto}
+.chat-attach-button{width:40px;flex:0 0 40px;display:grid;place-items:center;border-radius:7px;background:#252936;color:#c4c8d4;cursor:pointer}
+.chat-attach-button:hover{background:#343044;color:#fff}
+.chat-attach-button:has(input:disabled){opacity:.45;cursor:not-allowed}
+.chat-attach-button input{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;clip-path:inset(50%)}
+.chat-attach-button svg{width:16px;height:16px}
+.chat-selected-attachments,.chat-message-attachments{display:flex;flex-wrap:wrap;gap:6px}
+.chat-selected-attachments{padding:8px 24px 0}
+.chat-attachment-chip,.chat-message-attachments button{display:inline-flex;max-width:100%;align-items:center;gap:6px;border:1px solid #3a3e4c;border-radius:7px;background:#1b1e27;color:#dfe1e9;padding:6px 8px;font-size:11px}
+.chat-attachment-chip>svg,.chat-message-attachments svg{width:14px;height:14px;flex:none;color:#a99be1}
+.chat-attachment-chip>span,.chat-message-attachments button span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.chat-attachment-chip button{display:grid;place-items:center;border:0;background:transparent;color:#aeb3c0;padding:0}
+.chat-attachment-chip button:hover,.chat-message-attachments button:hover{color:#fff;background:#343044}
+.chat-attachment-chip button svg{width:13px;height:13px}
+.chat-message-attachments{margin-top:8px}
+.chat-message-attachments button{cursor:pointer}
+@media(max-width:700px){.chat-selected-attachments{padding-left:16px;padding-right:16px}.chat-composer{gap:5px}.chat-composer input{flex-basis:80px}.chat-composer select{max-width:74px;padding:0 4px}.chat-composer button.oral-explanation-toggle{padding:0 6px}}

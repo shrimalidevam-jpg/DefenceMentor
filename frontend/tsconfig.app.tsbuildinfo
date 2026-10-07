@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/assessmentpanel.tsx","./src/chatpanel.tsx","./src/dailygrowthpanel.tsx","./src/dailyreviewpanel.tsx","./src/diagnosticpanel.tsx","./src/ssbguidancepanel.tsx","./src/studyactivitycalendar.tsx","./src/studyplannerpanel.tsx","./src/main.tsx","./src/motion.ts","./src/vite-env.d.ts","./src/services/api.ts"],"version":"5.9.3"}
