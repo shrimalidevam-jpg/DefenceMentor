@@ -100,35 +100,19 @@ Alternatively, install and run Ollama locally and configure `AI_PROVIDER=ollama`
 
 For production deployments, set `APP_ENV=production`, `DEBUG=false`, and a unique random `SECRET_KEY` of at least 32 characters. The API rejects insecure production settings and disables interactive API documentation in production.
 
-## Production deployment (Vercel + Render)
+## Vercel deployment (frontend only)
 
-The frontend is a Vite static site and can be deployed on Vercel. The FastAPI backend needs a persistent PostgreSQL database and supports WebSocket chat, so deploy it as a Render web service instead of a Vercel Function.
+The React/Vite frontend can be published on Vercel as a static site:
 
-### 1. Create the PostgreSQL database
+1. Import `https://github.com/shrimalidevam-jpg/DefenceMentor` into Vercel.
+2. Set **Root Directory** to `frontend`.
+3. Keep the build command as `npm run build` and output directory as `dist`. The included `frontend/vercel.json` configures these and the client-side route fallback.
+4. Leave `VITE_API_URL` unset for a frontend-only deployment. Set `VITE_GOOGLE_CLIENT_ID` only if Google sign-in has been configured.
+5. Deploy.
 
-Create a PostgreSQL database with a provider such as Neon. Copy its pooled or direct connection URL and keep it private. The database URL must be accepted by SQLAlchemy/psycopg2 and include SSL settings required by the database provider.
+**Important:** this publishes the user interface only. Authentication, health status, chat, learning data, AI tutoring, and other API-backed features require the FastAPI backend and PostgreSQL database; they will not work in a Vercel-only static deployment. The live chat also uses WebSockets, which Vercel Functions do not support. Do not put API keys, database URLs, or other secrets in `VITE_*` variables; those values are exposed in the browser bundle.
 
-### 2. Deploy the backend on Render
-
-Connect the GitHub repository in Render and create a Blueprint from its `render.yaml` file. Set these environment variables for the `nda-chatbot-api` service:
-
-- `DATABASE_URL`: the PostgreSQL connection URL
-- `CORS_ORIGINS`: the exact deployed Vercel origin, for example `https://your-project.vercel.app` (no trailing slash)
-
-The Blueprint generates a production `SECRET_KEY`, disables debug mode and runs Alembic migrations before starting the API. Once deployed, check `https://<your-render-service>.onrender.com/api/health`. Render's free web service may sleep when idle; first requests can be delayed. Scheduled WhatsApp reports require the service to be continuously running, so use an always-on plan if those reports are enabled.
-
-### 3. Deploy the frontend on Vercel
-
-Import the same GitHub repository into Vercel and set **Root Directory** to `frontend`. The included `frontend/vercel.json` configures the Vite build and client-side route fallback. Add these Vercel project environment variables for Production (and Preview if needed):
-
-- `VITE_API_URL`: the backend origin, for example `https://your-render-service.onrender.com` (no trailing slash and no `/api`)
-- `VITE_GOOGLE_CLIENT_ID`: your Google Identity Services web client ID; leave unset to keep Google sign-in disabled
-
-Deploy the frontend, then update Render's `CORS_ORIGINS` with the exact production Vercel origin. Redeploy the backend after changing that setting. For Google sign-in, add the Vercel origin to the OAuth client's authorized JavaScript origins and set the same client ID in Render as `GOOGLE_CLIENT_ID`.
-
-AI tutoring is disabled unless a provider is configured. To enable Gemini, set `AI_PROVIDER=gemini-free` and `GEMINI_FREE_API_KEY` in Render; never put provider secrets in Vercel's `VITE_*` environment variables because those are exposed to the browser.
-
-The repository must be pushed to GitHub before Vercel and Render can import it. Do not commit `.env` files, database URLs, OAuth secrets, AI keys, or generated local certificates.
+Do not commit `.env` files, database URLs, OAuth secrets, AI keys, or generated local certificates.
 
 ### Parent WhatsApp reports
 
